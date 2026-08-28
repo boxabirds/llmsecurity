@@ -104,6 +104,30 @@ export const DESIGN_REGISTER: RegisterEntry[] = [
     loadBearing: true,
     generation: true,
   },
+
+  // Module 4 — the defensive payoff: the learner's own exploit, neutralised.
+  {
+    id: 'CaMeLFlow',
+    owner: 'story-7',
+    principle: 'kolb-experiential-cycle',
+  },
+  {
+    id: 'DefensePatternPicker',
+    owner: 'story-7',
+    principle: 'sweller-cognitive-load',
+  },
+  {
+    id: 'ArchitectureBuilder',
+    owner: 'story-7',
+    principle: 'kolb-experiential-cycle',
+  },
+  {
+    id: 'M4ReplayEngine',
+    owner: 'story-7',
+    principle: 'kapur-productive-failure',
+    loadBearing: true,
+    generation: true,
+  },
 ]
 
 /** Registers additional interactives (used by module modules at import time). */

@@ -18,4 +18,8 @@ export const MODULE_REGISTRY: Record<string, RegisteredModule> = {
     component: lazy(() => import('./m2')),
     referenceIds: ['echoleak', 'trifecta', 'owasp2025'],
   },
+  m4: {
+    component: lazy(() => import('./m4')),
+    referenceIds: ['camel', 'designPatterns', 'trifecta'],
+  },
 }
