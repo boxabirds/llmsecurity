@@ -1,0 +1,111 @@
+/*
+ * Design tokens.
+ *
+ * Light palette is defined on bare :root so a page always has a complete set of
+ * colours; dark overrides are applied under prefers-color-scheme (guarded so an
+ * explicit light choice wins) and again under [data-theme='dark'].
+ *
+ * Contrast targets: >= 4.5:1 for text, >= 3:1 for UI components and focus rings.
+ */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --surface-raised: #ffffff;
+  --text: #14181d;
+  --text-muted: #545b65;
+  --border: #d3d9e0;
+  --border-strong: #9aa4b1;
+
+  --accent: #14508f;
+  --accent-contrast: #ffffff;
+  --accent-soft: #e6eefb;
+
+  --danger: #a3231c;
+  --danger-soft: #fdeceb;
+  --safe: #145c36;
+  --safe-soft: #e6f4ec;
+  --warn: #7a4a00;
+  --warn-soft: #fdf1de;
+
+  --focus: #14508f;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --touch-target: 44px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.88rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.75rem;
+
+  --motion-fast: 200ms;
+  --motion-base: 300ms;
+  --motion-slow: 400ms;
+
+  --rail-width: 260px;
+  --inspector-width: 340px;
+  --bottom-nav-height: 60px;
+  --top-bar-height: 56px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0f1216;
+    --surface: #171b21;
+    --surface-raised: #1e242c;
+    --text: #e9edf2;
+    --text-muted: #a7b1bd;
+    --border: #2c333d;
+    --border-strong: #4a5462;
+
+    --accent: #8cb4f8;
+    --accent-contrast: #0f1216;
+    --accent-soft: #1b2739;
+
+    --danger: #ff9a92;
+    --danger-soft: #3a1e1c;
+    --safe: #85d9a9;
+    --safe-soft: #122b1f;
+    --warn: #f4c47a;
+    --warn-soft: #33260f;
+
+    --focus: #8cb4f8;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f1216;
+  --surface: #171b21;
+  --surface-raised: #1e242c;
+  --text: #e9edf2;
+  --text-muted: #a7b1bd;
+  --border: #2c333d;
+  --border-strong: #4a5462;
+
+  --accent: #8cb4f8;
+  --accent-contrast: #0f1216;
+  --accent-soft: #1b2739;
+
+  --danger: #ff9a92;
+  --danger-soft: #3a1e1c;
+  --safe: #85d9a9;
+  --safe-soft: #122b1f;
+  --warn: #f4c47a;
+  --warn-soft: #33260f;
+
+  --focus: #8cb4f8;
+}
