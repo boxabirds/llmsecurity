@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA fallback: client-side routing owns /module/:id, so every
+# path that is not a built asset must serve the app shell rather than 404.
+/*    /index.html   200

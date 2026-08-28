@@ -111,6 +111,20 @@
 
 Per the epic's technical foundation: React 18 + TypeScript, **Vite** bundling, **Bun** (not npm) for install/scripts/tests, **Cloudflare Pages** deployment, **Miniflare** for local dev/builds, fully client-side, no backend, no SSR, no live LLM, and **localStorage-only per-device persistence** (no D1/Workers for now). Because there is no SSR/RSC/remote fetching, the Vercel **server-side and data-waterfall** performance rules do not apply; the app follows the client-side subset of Vercel React best practices (bundle/code-splitting, re-render, rendering, JS-perf, versioned-minimal localStorage), documented in `interactive-tutorial-plan.md` and embedded per-design in each design's "Performance conventions" section.
 
-## Status
+## Status — shipped
 
-Each of the 13 active stories has a complete, gate-passing Ceetrix spec chain: **PRD (EARS) → design (structure/state/sequence diagrams + tabular test strategy + performance conventions) → tasks → tests**. All specification gates (G1 PRD→Design, G2 Design→Tasks, G3 Test Coverage, G8/G9 content/prose, G11/G12 coherence/semantic) pass on every story. The only pending gate is **G6 (All Tasks Complete)** — expected, since implementation has not started. 31 capabilities, 62 tasks (31 implementation + 31 test). Next step is implementation.
+All **13 stories are `done`** in Ceetrix, every gate green including G6 (All Tasks Complete). The spec chain held end to end: **PRD (EARS) → design → tasks → tests → working code**, with real evidence, test counts and retrospectives recorded on every task.
+
+| | |
+|---|---|
+| Stories done | 13 / 13 |
+| Capabilities implemented | 33 |
+| Tasks completed | 79 |
+| Unit / component tests | 256 passing |
+| End-to-end tests (real Chromium, desktop + mobile) | 37 passing |
+| CI gates | design-register lint and reference-integrity both green |
+| Build | `bun run build` clean; per-module code-splitting; runs under Miniflare and deploys to Cloudflare Pages |
+
+Build order followed [`implementation-plan.md`](./implementation-plan.md): platform first (12 → 8 → 10 → 11 → 13 → 9), then the M2 vertical slice (3) to validate the whole stack, then the remaining modules (1, 2, 4 in parallel under subagents; 7, 5, then 6).
+
+Three defects were caught by the project's own gates rather than by review: `--border-strong` failing WCAG AA contrast, a literal citation element inside a doc comment resolving to a non-existent reference, and M3's mastery gate being registered as `generation: true` while actually offering a nine-way pick. All three were fixed at source rather than by weakening the check.
