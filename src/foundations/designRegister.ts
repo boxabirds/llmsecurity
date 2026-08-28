@@ -168,6 +168,20 @@ export const DESIGN_REGISTER: RegisterEntry[] = [
     generation: true,
   },
 
+  // Module 6 — authentic assessment: a decision you have to defend.
+  {
+    id: 'M6ScenarioSimulator',
+    owner: 'story-6',
+    principle: 'authentic-assessment',
+  },
+  {
+    id: 'M6RiskMemo',
+    owner: 'story-6',
+    principle: 'authentic-assessment',
+    loadBearing: true,
+    generation: true,
+  },
+
   // Module 4 — the defensive payoff: the learner's own exploit, neutralised.
   {
     id: 'CaMeLFlow',

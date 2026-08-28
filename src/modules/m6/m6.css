@@ -1,0 +1,121 @@
+.m6-decision,
+.m6-outcome,
+.m6-memo {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+  background: var(--surface);
+}
+
+.m6-decision__counter {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.m6-decision__options {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr 1fr;
+  margin: var(--space-4) 0;
+}
+
+/* One decision per screen, one option per row on a phone. */
+@media (max-width: 767px) {
+  .m6-decision__options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.m6-option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: left;
+  min-height: var(--touch-target);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.m6-option--chosen {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.m6-option__label {
+  font-weight: 700;
+}
+
+.m6-option__detail {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.m6-consequence {
+  padding: var(--space-3);
+  border-left: 3px solid var(--accent);
+  background: var(--surface-raised);
+  border-radius: var(--radius-sm);
+}
+
+.m6-consequence__atlas {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.m6-incident {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+}
+
+.m6-memo__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.m6-memo__input {
+  width: 100%;
+  min-height: 88px;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.m6-memo__result {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius);
+}
+
+.m6-memo__result--pass {
+  background: var(--safe-soft);
+  border: 1px solid var(--safe);
+}
+
+.m6-memo__result--fail {
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+}
+
+.m6-memo__export {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  white-space: pre;
+}

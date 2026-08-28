@@ -43,6 +43,10 @@ export const MODULE_REGISTRY: Record<string, RegisteredModule> = {
     component: lazy(() => import('./m4')),
     referenceIds: ['camel', 'designPatterns', 'trifecta'],
   },
+  m6: {
+    component: lazy(() => import('./m6')),
+    referenceIds: ['mitreAtlas', 'echoleak', 'trifecta', 'nistAiRmf', 'camel'],
+  },
   m5: {
     component: lazy(() => import('./m5')),
     referenceIds: [
