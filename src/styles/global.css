@@ -73,6 +73,21 @@ summary {
   scrollbar-width: thin;
 }
 
+.module-eyebrow {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.module-note {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border-left: 3px solid var(--border-strong);
+  padding-left: var(--space-3);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

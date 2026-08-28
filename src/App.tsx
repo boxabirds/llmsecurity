@@ -3,17 +3,7 @@ import { Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { MODULES, moduleById } from './content/modules'
 import { ReferenceProvider } from './references/ReferenceProvider'
 import { Shell } from './shell/Shell'
-import type { ComponentType, LazyExoticComponent } from 'react'
-
-/**
- * Module routes are registered here as each module ships. Modules are
- * code-split so the initial bundle stays small and a heavy lab is fetched only
- * when the learner opens it.
- */
-export const MODULE_COMPONENTS: Record<
-  string,
-  { component: LazyExoticComponent<ComponentType>; referenceIds: readonly string[] }
-> = {}
+import { MODULE_REGISTRY } from './modules/registry'
 
 function ModuleFallback() {
   return (
@@ -37,7 +27,7 @@ function NotBuiltYet({ id }: { id: string }) {
 
 function ModuleRoute() {
   const { moduleId = MODULES[0].id } = useParams()
-  const registered = MODULE_COMPONENTS[moduleId]
+  const registered = MODULE_REGISTRY[moduleId]
   const Component = registered?.component
 
   return (

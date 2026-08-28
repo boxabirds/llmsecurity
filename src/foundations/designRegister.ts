@@ -66,6 +66,44 @@ export const DESIGN_REGISTER: RegisterEntry[] = [
     owner: 'story-12',
     principle: 'sweller-cognitive-load',
   },
+  {
+    id: 'FeedbackLoop',
+    owner: 'story-10',
+    principle: 'chi-self-explanation',
+  },
+  {
+    id: 'CalibrationMirror',
+    owner: 'story-13',
+    principle: 'roediger-karpicke-testing-effect',
+  },
+  {
+    id: 'ReferenceSurface',
+    owner: 'story-11',
+    principle: 'mayer-multimedia',
+  },
+  {
+    id: 'ModuleRail',
+    owner: 'story-9',
+    principle: 'kolb-experiential-cycle',
+  },
+
+  // Module 2 — the learner becomes the attacker, then is turned to the defense.
+  {
+    id: 'InjectionPlayground',
+    owner: 'story-3',
+    principle: 'kapur-productive-failure',
+    isAttackLab: true,
+    hasBookend: true,
+  },
+  {
+    id: 'M2LadderFlow',
+    owner: 'story-3',
+    principle: 'scaffolding-and-fading',
+    isAttackLab: true,
+    hasBookend: true,
+    loadBearing: true,
+    generation: true,
+  },
 ]
 
 /** Registers additional interactives (used by module modules at import time). */
