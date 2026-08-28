@@ -1,0 +1,276 @@
+/* Module 1 — the living map and the tagging assessment. */
+
+.m1-map__hint,
+.m1-assessment__hint {
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.m1-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+}
+
+.m1-card {
+  /* Offscreen cards are not laid out until they are scrolled near; the
+     intrinsic size keeps the scrollbar honest while they are skipped. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 160px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-3);
+  min-width: 0;
+}
+
+.m1-card[data-raised='true'] {
+  border-color: var(--accent);
+  background: var(--surface-raised);
+}
+
+.m1-card[data-visited='true'] {
+  border-left: 4px solid var(--safe);
+}
+
+.m1-card[data-new2025='true'] {
+  border-color: var(--accent);
+}
+
+.m1-card[data-pulse='true'] {
+  animation: m1-pulse var(--motion-slow) ease-out 1;
+}
+
+@keyframes m1-pulse {
+  from {
+    box-shadow: 0 0 0 0 var(--accent-soft);
+  }
+  50% {
+    box-shadow: 0 0 0 6px var(--accent-soft);
+  }
+  to {
+    box-shadow: 0 0 0 0 var(--accent-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m1-card[data-pulse='true'] {
+    animation: none;
+  }
+}
+
+.m1-card__button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: var(--touch-target);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.m1-card__code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.m1-card__title {
+  font-weight: 600;
+  font-size: var(--text-base);
+}
+
+.m1-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.m1-badge {
+  font-size: var(--text-xs);
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+}
+
+.m1-badge--new {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.m1-badge--visited {
+  border-color: var(--safe);
+  background: var(--safe-soft);
+  color: var(--safe);
+}
+
+/* The gloss is the middle layer of detail: present for assistive tech at all
+   times, revealed visually when the card is focused, hovered or open. */
+.m1-card__gloss {
+  margin: 0;
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height var(--motion-fast) ease-out,
+    opacity var(--motion-fast) ease-out;
+}
+
+.m1-card[data-raised='true'] .m1-card__gloss {
+  max-height: 6em;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m1-card__gloss {
+    transition: none;
+  }
+}
+
+.m1-card__panel {
+  padding: var(--space-2);
+}
+
+.m1-card__incident {
+  font-size: var(--text-sm);
+  margin: var(--space-2) 0;
+}
+
+.m1-card__incident--placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.m1-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+/* ---- assessment ---- */
+
+.m1-assessment {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.m1-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+}
+
+.m1-progress__dot {
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.m1-progress__dot[data-answered='true'] {
+  border-color: var(--safe);
+  background: var(--safe-soft);
+  color: var(--safe);
+}
+
+.m1-progress__dot--current {
+  border-color: var(--accent);
+  border-width: 2px;
+}
+
+.m1-vignette {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-4);
+}
+
+.m1-vignette__setting {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-2);
+}
+
+.m1-vignette__scenario {
+  margin: 0 0 var(--space-4);
+}
+
+.m1-vignette__options {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.m1-vignette__legend {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: var(--space-2);
+}
+
+.m1-feedback {
+  margin: var(--space-4) 0 0;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+
+.m1-feedback--exact {
+  border-color: var(--safe);
+  background: var(--safe-soft);
+}
+
+.m1-feedback--adjacent {
+  border-color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.m1-feedback--distant {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.m1-assessment__blocked {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.m1-complete {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--safe);
+  border-radius: var(--radius);
+  background: var(--safe-soft);
+}
+
+.m1-complete__next {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+}

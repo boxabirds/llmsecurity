@@ -105,6 +105,69 @@ export const DESIGN_REGISTER: RegisterEntry[] = [
     generation: true,
   },
 
+  // Module 0 — story first, principle second.
+  {
+    id: 'M0DiscoveryFlow',
+    owner: 'story-1',
+    principle: 'concreteness-fading',
+  },
+  {
+    id: 'TokenStreamViz',
+    owner: 'story-1',
+    principle: 'paivio-dual-coding',
+  },
+  {
+    id: 'TrifectaBuilder',
+    owner: 'story-1',
+    principle: 'paivio-dual-coding',
+    loadBearing: true,
+    generation: true,
+  },
+
+  // Module 1 — the advance organizer.
+  {
+    id: 'M1RiskMatrix',
+    owner: 'story-2',
+    principle: 'ausubel-advance-organizer',
+  },
+  {
+    id: 'M1TaggingAssessment',
+    owner: 'story-2',
+    principle: 'bjork-desirable-difficulties',
+    loadBearing: true,
+    generation: true,
+  },
+
+  // Module 3 — three contrasting attack labs.
+  {
+    id: 'M3LabShell',
+    owner: 'story-4',
+    principle: 'bjork-desirable-difficulties',
+    isAttackLab: true,
+    hasBookend: true,
+    loadBearing: true,
+    generation: true,
+  },
+
+  // Module 5 — cognitive conflict about what cannot be fixed.
+  {
+    id: 'GuardrailGauntlet',
+    owner: 'story-5',
+    principle: 'posner-conceptual-change',
+  },
+  {
+    id: 'IndefensibleMap',
+    owner: 'story-5',
+    principle: 'sweller-cognitive-load',
+  },
+  {
+    id: 'M5CritiqueGate',
+    owner: 'story-5',
+    principle: 'chi-self-explanation',
+    loadBearing: true,
+    generation: true,
+  },
+
   // Module 4 — the defensive payoff: the learner's own exploit, neutralised.
   {
     id: 'CaMeLFlow',

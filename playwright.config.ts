@@ -17,6 +17,8 @@ export default defineConfig({
     {
       name: 'desktop',
       use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 900 } },
+      // Mobile-only specs run in the mobile project, not here.
+      testIgnore: /.*\.mobile\.spec\.ts/,
     },
     {
       name: 'mobile',
