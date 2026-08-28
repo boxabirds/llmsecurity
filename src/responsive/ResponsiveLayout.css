@@ -1,0 +1,80 @@
+.layout {
+  display: grid;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.layout--multi-pane {
+  grid-template-columns: var(--rail-width) minmax(0, 1fr) var(--inspector-width);
+  grid-template-areas: 'rail stage aside';
+}
+
+.layout--two-pane {
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  grid-template-areas: 'rail stage';
+}
+
+.layout--single-column {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'topbar'
+    'stage'
+    'bottombar';
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.layout__rail {
+  grid-area: rail;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.layout__stage {
+  grid-area: stage;
+  min-width: 0;
+  padding: var(--space-5);
+  overflow-y: auto;
+}
+
+.layout__aside {
+  grid-area: aside;
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.layout__top-bar {
+  grid-area: topbar;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--top-bar-height);
+  padding: var(--space-2) var(--space-4);
+  padding-top: calc(var(--space-2) + env(safe-area-inset-top, 0px));
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.layout__bottom-bar {
+  grid-area: bottombar;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  min-height: var(--bottom-nav-height);
+  padding: var(--space-2) var(--space-4);
+  padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 767px) {
+  .layout__stage {
+    padding: var(--space-4);
+  }
+}

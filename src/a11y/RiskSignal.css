@@ -1,0 +1,45 @@
+.risk-signal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+
+.risk-signal__icon {
+  font-weight: 700;
+}
+
+.risk-signal__label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--text-xs);
+}
+
+.risk-signal__text {
+  color: var(--text);
+  flex: 1 1 12rem;
+}
+
+.risk-signal--contained {
+  background: var(--safe-soft);
+  border-color: var(--safe);
+  color: var(--safe);
+}
+
+.risk-signal--elevated {
+  background: var(--warn-soft);
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.risk-signal--exposed {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+  color: var(--danger);
+}
